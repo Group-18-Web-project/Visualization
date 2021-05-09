@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>crime number choropleth for years between 2010 and 2020</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+<link href='crime_number.css' rel='stylesheet' />
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+</head>
+<body>
+<div id="map"></div>
+  
+ <div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+        <h2>Chicago Annual Crime Incidents</h2>
+		<table><tr><td>
+        <input id='slider' type='range' min='0' max='10' step='1' value='0' list='tickmarks' />
+        <datalist id="tickmarks">
+		  <option value="0" label="2010">
+		  <option value="1">
+		  <option value="2">
+		  <option value="3">
+		  <option value="4" label="2014">
+		  <option value="5">
+		  <option value="6">
+		  <option value="7" >
+          <option value="8" >
+          <option value="9" >
+          <option value="10" label="2020">
+		  </datalist>
+		 </td>
+		 <td>
+		  <label id='year'>2010</label>
+         </td>
+         </tr></table>
+         <p class="credit">Crime Data: <a href="https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2">CHICAGO DATA PORTAL</a>. </p>
+     </div>
+<!--
+     <div class="map-overlay-inner">
+        <div id="legend1" class="legend1">
+            <div class="bar"></div>
+            <div>color gradients effect for the number of crime</div>
+        </div>
+     </div>
+-->
+ </div> 
+
+
+  
+    
+<!--
+<div class='fixed1'>
+    <p id="laname">Hover over a ward to see the specific crime number of majoy categaries </p>
+	
+</div>
+-->
+    
+<div class='fixed'>
+    <h3>The number of top 10 crime type </h3>
+
+    <div id="chartContainer"></div> 
+    <p id="laname">Hover over a ward to see the specific crime number of each categaries </p>
+</div>
+<!--
+<div id="borough-legend" class="legend">
+<h4>Total Crime number</h4>
+<div><span style="background-color: #723122"></span>70,000</div>
+<div><span style="background-color: #8b4225"></span>40,000</div>
+<div><span style="background-color: #a25626"></span>35,000</div>
+<div><span style="background-color: #b86b25"></span>30,000</div>
+<div><span style="background-color: #ca8323"></span>25,000</div>
+<div><span style="background-color: #da9c20"></span>21,000</div>
+<div><span style="background-color: #e6b71e"></span>17,000</div>
+<div><span style="background-color: #eed322"></span>13,000</div>
+<div><span style="background-color: #f2f12d"></span> 9,000</div>
+</div>
+-->
+ 
+<div id="ward-legend" class="legend" style="display: block">
+<h4>Total Crime number</h4>
+<div><span style="background-color: #723122"></span>19000</div>
+<div><span style="background-color: #8b4225"></span>16000</div>
+<div><span style="background-color: #a25626"></span>14000</div>
+<div><span style="background-color: #b86b25"></span>12000</div>
+<div><span style="background-color: #ca8323"></span>10000</div>
+<div><span style="background-color: #da9c20"></span>8000</div>
+<div><span style="background-color: #e6b71e"></span> 6000</div>
+<div><span style="background-color: #eed322"></span> 4000</div>
+<div><span style="background-color: #f2f12d"></span> 1800</div>
+</div>
+    
+    
+<script>
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZG9yYS1meGgiLCJhIjoiY2trN29yc3k2MGZ4bDJ4cThkMGdmbTQ3diJ9.UknAhrdwEiyMT_lWttJ7cQ';
+    var years = [
+    '2010',
+    '2011',
+    '2012',
+    '2013',
+    '2014',
+    '2015',
+    '2016',
+    '2017',
+    '2018',
+    '2019',
+    '2020',    
+    ];
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/dora-fxh/ckobvmbkr191018oajxia0qtu',
+        center: [ -87.75,41.8397],
+        minZoom: 0,
+        zoom: 9.8
+    });
+ 
+//    var zoomThreshold = 2;
+    var year = 0
+    map.on('load', function () {
+        map.addSource('crime_map', {
+            'type': 'vector',
+            'url': 'mapbox://dora-fxh.azs39ziq'
+            
+            
+        });
+        
+        
+
+        function setYear(year) {
+                
+            document.getElementById('year').textContent = years[year];  // Set the label to the correct year
+
+//            var pp = map.getPaintProperty('crime_borough','fill-color');
+//
+//            console.log(pp);
+//            pp[2][1] =  years[year];  
+//
+//            map.setPaintProperty('crime_borough','fill-color',pp);
+            
+            var pp = map.getPaintProperty('crime_ward','fill-color');
+            pp[2][1] =  years[year];
+            map.setPaintProperty('crime_ward','fill-color',pp);
+            
+//            console.log(map.getPaintProperty('crime_borough','fill-color'));
+
+//            var yearcol = "EE" + String(years[year]);
+//
+//            var filters = ['>', yearcol, 30];
+//            map.setFilter('labels', filters);
+        }
+        
+        // Assign an event listner to the slider so that the setYear function runs when the user changes the slider
+        document.getElementById('slider').addEventListener('input', function(e) {
+            year = parseInt(e.target.value);
+            setYear(year);
+        });
+        
+//        map.addLayer(
+//            {
+//                'id': 'crime_borough',
+//                'source': 'crime_map',
+//                'source-layer': 'crime_59',
+//                'layout': {
+//                        'visibility': 'visible'
+//                    },
+//                'maxzoom': zoomThreshold,
+//                'type': 'fill',
+//                'filter': ['==', 'is_brough', "TRUE"],
+//                'paint': {
+//                    'fill-color': [
+//                        'interpolate',
+//                        ['linear'],
+//                        ['get', '2018'],
+//                        9000,
+//                        '#f2f12d',
+//                        13000,
+//                        '#eed322',
+//                        17000,
+//                        '#E6B71E',
+//                        21000,
+//                        '#DA9C20',
+//                        25000,
+//                        '#ca8323',
+//                        30000,
+//                        '#B86B25',
+//                        35000,
+//                        '#A25626',
+//                        40000,
+//                        '#8b4225',
+//                        70000,
+//                        '#723122'
+//                    ],
+//                    'fill-opacity': 0.75
+//                }
+//            },
+//            'waterway-label'
+//        );
+        
+        map.addLayer(
+            {
+                'id': 'crime_ward',
+                'source': 'crime_map',
+                'source-layer': 'Chicago_crime_total-cj87w7',
+//                'minzoom': zoomThreshold,
+                'type': 'fill',
+//                'filter': ['==', 'is_brough', "FALSE"],
+                'paint': {
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', '2018'],
+                        1800,
+                        '#f2f12d',
+                        4000,
+                        '#eed322',
+                        6000,
+                        '#E6B71E',
+                        8000,
+                        '#DA9C20',
+                        10000,
+                        '#CA8323',
+                        12000,
+                        '#B86B25',
+                        14000,
+                        '#A25626',
+                        18000,
+                        '#8b4225',
+                        20000,
+                        '#723122'
+                    ],
+                    'fill-opacity': 0.85
+                }
+            },
+            'waterway-label'
+        );
+
+ 
+        
+         map.addLayer({                  // Add the line highlight layer. This layer has a filter, which initially is empty.
+            id: 'lahighlight',
+            type: 'line',
+            source: {
+              type: 'vector',
+              url: 'mapbox://dora-fxh.azs39ziq' // Your Mapbox tileset Map ID
+            },
+            'source-layer': 'Chicago_crime_total-cj87w7', // name of tilesets
+            'layout': {
+                'visibility': 'visible'
+            },
+            paint: {
+                'line-color': '#ddd',
+                'line-width': 3
+                },
+            filter: ['==','ward','empty']
+          });
+        
+//        map.on('mousemove','crime_borough', function(e) {       // This is the main event listner which is triggered when the mouse moves
+//              var la = map.queryRenderedFeatures(e.point, {   // This queries whether the mouse is over an object in the LocalAuthorities layer
+//                layers: ['crime_borough']
+//              });
+//
+//            var crime_detail = "crime_detail_"+years[year]
+//            if (la.length==1) {   // This if statement is run when the mouse is over a local authority
+//
+//            map.setFilter('lahighlight', ['==','GSS_CODE',la[0].properties.GSS_CODE]);  // Filter the highlight layer to show the local authority outline
+//            console.log(la[0].properties.name);
+//            document.getElementById('laname').innerHTML ="<h4>" +la[0].properties.GSS_CODE+"<Br>"+la[0].properties.name+ ": "+ "</h4>"
+//            +e.features[0].properties[crime_detail]; // Change the name in the top left box to show the local authority name
+//            console.log(la[0].id);
+//            console.log(la);
+//
+//            } else {
+//            map.setFilter('lahighlight', ['==','name','null']);
+//            console.log('No features');
+//            document.getElementById('laname').innerHTML = "Hover over a borough (or a ward) to see the specific crime number of  majoy categaries ";
+//            }
+//
+//
+//        });
+
+    });
+			function clearcontent(elementID) { 
+	            var div = document.getElementById(elementID); 
+	              
+	            while(div.firstChild) { 
+	                div.removeChild(div.firstChild); 
+	            } 
+	        }
+ 
+    
+        map.on('mousemove','crime_ward', function(e) {       // This is the main event listner which is triggered when the mouse moves
+              var la = map.queryRenderedFeatures(e.point, {   // This queries whether the mouse is over an object in the ward layer
+                layers: ['crime_ward']
+              });
+
+//            var crime_detail = "crime_detail_"+years[year]
+            if (la.length==1) {   // This if statement is run when the mouse is over a ward
+
+            map.setFilter('lahighlight', ['==','ward',la[0].properties.ward]);  // Filter the highlight layer to show the ward outline
+//            console.log(la[0].properties);
+            document.getElementById('laname').innerHTML ="The total crime number of ward "+la[0].properties.ward+" in "+years[year]+": "+e.features[0].properties[years[year]];
+ // Change the name in the top left box to show the ward name
+            
+                clearcontent("chartContainer");
+                var svg = dimple.newSvg("#chartContainer", 440,220);
+                var data = [];            
+                for(var key in la[0].properties){ 
+                    if (key.includes(years[year]) && key != years[year]){
+                        data.push({"crime type": key.slice(0,-5), "crime number": la[0].properties[key]})}
+                    };     
+              var myChart = new dimple.chart(svg, data);
+              myChart.setBounds(123, 0, 300, 200)
+              var bar_x = myChart.addMeasureAxis("x", "crime number");
+              myChart.addCategoryAxis("y", "crime type");
+              myChart.addSeries(null, dimple.plot.bar);
+              myChart.draw();               
+            
+//        
+
+
+//            console.log(la[0].id);
+//            console.log(la);
+
+            } else {
+            map.setFilter('lahighlight', ['==','ward','null']);
+            console.log('No features');
+            document.getElementById('laname').innerHTML = "Hover over a ward";
+            }
+
+
+        });
+        
+
+
+
+//    var stateLegendEl = document.getElementById('borough-legend');
+//    var countyLegendEl = document.getElementById('ward-legend');
+//    map.on('zoom', function () {
+//        if (map.getZoom() > 0 ){
+////            stateLegendEl.style.display = 'none';
+//            countyLegendEl.style.display = 'block';
+//        } else {
+////            stateLegendEl.style.display = 'block';
+//            countyLegendEl.style.display = 'none';
+//        }
+//    });
+    
+ 
+</script>
+</body>
+</html>
