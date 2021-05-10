@@ -8,7 +8,7 @@
 <link href='crime_number.css' rel='stylesheet' />
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
 <script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
+<script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
 </head>
 <body>
 <div id="map"></div>
@@ -81,15 +81,15 @@
  
 <div id="ward-legend" class="legend" style="display: block">
 <h4>Total Crime number</h4>
-<div><span style="background-color: #723122"></span>19000</div>
-<div><span style="background-color: #8b4225"></span>16000</div>
-<div><span style="background-color: #a25626"></span>14000</div>
-<div><span style="background-color: #b86b25"></span>12000</div>
-<div><span style="background-color: #ca8323"></span>10000</div>
-<div><span style="background-color: #da9c20"></span>8000</div>
-<div><span style="background-color: #e6b71e"></span> 6000</div>
-<div><span style="background-color: #eed322"></span> 4000</div>
-<div><span style="background-color: #f2f12d"></span> 1800</div>
+<div><span style="background-color: #B40431"></span>19000</div>
+<div><span style="background-color: #B4045F"></span>16000</div>
+<div><span style="background-color: #8000FF"></span>14000</div>
+<div><span style="background-color: #9A2EFE"></span>12000</div>
+<div><span style="background-color: #2E2EFE"></span>10000</div>
+<div><span style="background-color: #5858FA"></span>8000</div>
+<div><span style="background-color: #5882FA"></span> 6000</div>
+<div><span style="background-color: #A9BCF5"></span> 4000</div>
+<div><span style="background-color: #CED8F6"></span> 1800</div>
 </div>
     
     
@@ -214,23 +214,23 @@
                         ['linear'],
                         ['get', '2018'],
                         1800,
-                        '#f2f12d',
+                        '#CED8F6',
                         4000,
-                        '#eed322',
+                        '#A9BCF5',
                         6000,
-                        '#E6B71E',
+                        '#5882FA',
                         8000,
-                        '#DA9C20',
+                        '#5858FA',
                         10000,
-                        '#CA8323',
+                        '#2E2EFE',
                         12000,
-                        '#B86B25',
+                        '#9A2EFE',
                         14000,
-                        '#A25626',
+                        '#8000FF',
                         18000,
-                        '#8b4225',
+                        '#B4045F',
                         20000,
-                        '#723122'
+                        '#B40431'
                     ],
                     'fill-opacity': 0.85
                 }
@@ -313,7 +313,7 @@
                         data.push({"crime type": key.slice(0,-5), "crime number": la[0].properties[key]})}
                     };     
               var myChart = new dimple.chart(svg, data);
-              myChart.setBounds(123, 0, 300, 200)
+              myChart.setBounds(123, 0, 280, 200)
               var bar_x = myChart.addMeasureAxis("x", "crime number");
               myChart.addCategoryAxis("y", "crime type");
               myChart.addSeries(null, dimple.plot.bar);
