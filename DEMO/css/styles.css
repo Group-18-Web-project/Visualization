@@ -374,7 +374,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
 }
 
 h4, .h4 {
@@ -10239,7 +10239,7 @@ body {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
   padding: 1.25rem 2rem;
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 80%;
+  font-size: 100%;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   border: 0;
@@ -10304,7 +10304,7 @@ body {
 .projects-section {
   position: relative;
   width: 100%;
-  height: 100rem;
+  height: 210rem;
   padding: 1rem 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/background.jpg");
   background-position: center;
@@ -10343,10 +10343,25 @@ body {
         
 } 
 
+.embedded-pop {
+    margin-bottom: 0px;
+    width: 800px;
+    height: 800px;
+        
+} 
+
+.embedded-chart {
+    margin-top: 0px;
+    width: 820px;
+    height: 755px;
+        
+} 
+
 #chartContainer {
      width: 820px;
-    height: 470px;
+     height: 470px;
      margin-left: 400px;
+     margin-bottom: 50px;
      background: white
 }
 

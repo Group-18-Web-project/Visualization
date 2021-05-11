@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="icon" href="https://static.jianshukeji.com/hcode/images/favicon.ico">
+        <style>
+            #container {
+	        min-width: 320px;
+	        max-width: 800px;
+	        margin: 0 auto;
+            }
+        </style>
+        <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            Highcharts.chart('container', {
+               chart: {
+               type: 'packedbubble',
+               height: '100%'
+             },
+             title: {
+             text: '2010 - 2016 Chicago Population Change'
+             
+             },
+             tooltip: {
+             useHTML: true,
+             pointFormat: '<b>{point.name}:</b> {point.y}'
+             },
+             plotOptions: {
+                packedbubble: {
+                    minSize: '30%',
+                    maxSize: '70%',
+                    zMin: 0,
+                    zMax: 1000,
+                    layoutAlgorithm: {
+                       gravitationalConstant: 0.05,
+                       splitSeries: true,
+                       seriesInteraction: false,
+                       dragBetweenSeries: true,
+                       parentNodeLimit: true
+                     },
+                     dataLabels: {
+                       enabled: true,
+                       format: '{point.name}',
+                       filter: {
+                       property: 'y',
+                       operator: '>',
+                       value: 250
+                     },
+                       style: {
+                       color: 'black',
+                       textOutline: 'none',
+                       fontWeight: 'normal'
+                      }
+                  }
+                }
+             },
+             series: [{
+                name: 'Large population left',
+                 data: [{
+                     name: 'Ward 20',
+                     value: -4376
+                }, {
+                     name: 'Ward 15',
+                     value: -4346
+                },
+                {
+                    name: 'Ward 34',
+                    value: -3500
+                },
+                {
+                     name: "Ward 8",
+                     value: -3180
+                },
+                {
+                     name: "Ward 24",
+                     value: -2868
+                },
+                {
+                     name: "Ward 6",
+                     value: -2606
+                },
+                {
+                     name: "Ward 17",
+                     value: -2575
+                },
+                {
+                     name: "Ward 16",
+                     value: -2419
+                },
+                {
+                     name: "Ward 10",
+                     value: -2193
+                },
+                {
+                     name: "Ward 31",
+                     value: -2035
+                }, 
+                {
+                     name: "Ward 7",
+                     value: -1972
+                }, 
+                {
+                     name: "Ward 26",
+                     value: -1707
+                },
+                {
+                     name: "Ward 25",
+                     value: -1699
+                },
+                {
+                     name: "Ward 21",
+                     value: -1536
+                },
+                {
+                     name: "Ward 36",
+                     value: -1389
+                },
+                {
+                     name: "Ward 12",
+                     value: -1320
+                },
+                {
+                     name: "Ward 41",
+                     value: -1146
+                }]
+              }, {
+                 name: 'population left',
+                 data: [{
+                     name: "Ward 22",
+                     value: -964
+                 },
+                {
+                     name: "Ward 35",
+                     value: -724
+                 },
+                 {
+                     name: "Ward 9",
+                     value: -656
+                 },
+                 {
+                     name: "Ward 48",
+                     value: -463
+                },
+                {
+                     name: "Ward 46",
+                     value: -414
+                 },
+                {
+                     name: "Ward 37",
+                     value: -360
+                               }]
+             }, {
+                name: 'Population entry',
+                data: [{
+                     name: "Ward 29",
+                     value: 380
+                },
+                {
+                     name: "Ward 1",
+                     value: 512
+                },
+                {
+                     name: "Ward 33",
+                     value: 523
+                },
+                {
+                     name: "Ward 30",
+                     value: 583
+                },
+                {
+                     name: "Ward 5",
+                     value: 618
+                },
+                {
+                     name: "Ward 40",
+                     value: 623
+                },
+                {
+                     name: "Ward 49",
+                     value: 649
+                },
+                {
+                     name: "Ward 14",
+                     value: 833
+                },
+                {
+                     name: "Ward 28",
+                     value: 892
+                }]
+            }, {
+                 name: 'Large Population entry',
+                 data: [{
+                     name: "Ward 28",
+                     value: 1151
+                 },
+                 {
+                     name: "Ward 28",
+                     value: 1363
+                 },
+                {
+                     name: "Ward 28",
+                     value: 1586
+                 },
+                 {
+                     name: "Ward 28",
+                     value: 1662
+                 },
+                 {
+                     name: "Ward 28",
+                     value: 1830
+                 },
+                 {
+                     name: "Ward 28",
+                     value: 1900
+                 },
+                {
+                     name: "Ward 28",
+                     value: 2170
+                },
+                {  
+                     name: "Ward 28",
+                     value: 2264
+                },
+                {
+                     name: "Ward 28",
+                     value: 2500
+                },
+                {
+                     name: "Ward 28",
+                     value: 2712
+                },
+                {
+                     name: "Ward 28",
+                     value: 2724
+                 },
+                 { 
+                     name: "Ward 28",
+                     value: 2970
+                 },
+                 {
+                     name: "Ward 28",
+                     value: 3480
+                 },
+                 {
+                      name: "Ward 28",
+                     value: 3813
+                },
+                {
+                     name: "Ward 28",
+                     value: 3860
+                 },
+                {
+                      name: "Ward 28",
+                     value: 3914
+                 },
+                 {
+                     name: "Ward 28",
+                     value: 4649
+                 },
+                 {
+                     name: "Ward 42",
+                     value: 10333
+                }]
+    }]
+});
+
+</script>
+    </body>
+</html>
