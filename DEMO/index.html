@@ -26,7 +26,10 @@
                 <a class="navbar-brand js-scroll-trigger" href="index.html">Group 18 Web Project</a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Intro">Intro</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#map">Map</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#charts">Charts</a></li>
                         <li class="nav-item"><a class="nav-link active js-scroll-trigger" href="about.html">Analysis</a></li>
                     </ul>
                 </div>
@@ -38,12 +41,13 @@
     <div class="mx-auto text-center">
       <h1 class="mx-auto my-0 text-uppercase">Crime</h1>
       <h2 class="text-white-80 mx-auto mt-2 mb-5">A study about the change of crime rate in Chicago from 2010 - 2021.</h2>
-      <a class="btn btn-primary js-scroll-trigger" href="#projects">Get Started</a>
+      <a class="btn btn-primary js-scroll-trigger" href="#Intro">Get Started</a>
     </div>
   </div>
 </header>
 <!-- Projects-->
-<section class="projects-section" id="projects">
+<a name="Intro1" style="display:block;height:80px;margin-top:-80px;"></a>    
+<section class="projects-section" id="Intro">
   <div class="container">
     <div class="row align-items-center no-gutters mb-1 mb-lg-1">
       <div class="col-xl-4 col-lg-5">
@@ -54,10 +58,24 @@
       </div>
     </div>
   </div>
-
-<div style="margin-left: 400px; width: 1000px; height: 600px;" data-wordart-src="https://cdn.wordart.com/json/4cbxclzeo85e"></div>
+  
+  <div class="container">    
+    <div style=" width: 1000px; height: 600px;" data-wordart-src="https://cdn.wordart.com/json/4cbxclzeo85e"></div>
+  </div>
     
-<div class="container" id="map">
+  <div class="container" style="height: auto">
+    <div class="row align-items-center no-gutters mt-4 my-4">
+      <div class="col-xl-4 col-lg-5">
+        <div class="text-center text-lg-left">
+          <h5 style="width: 1000px" class="text-white-80 mx-auto mt-3 mb-3">Nulla elementum sapien leo, eu blandit sem pellentesque ac. Fusce faucibus mauris lorem, nec maximus nibh placerat at. Cras volutpat mi lacus. Donec vel arcu viverra, ultricies ligula at, bibendum est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque posuere urna nisi. Praesent congue augue erat, ultrices faucibus tellus ultrices elementum.  </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+<a name="map1" style="display:block;height:100px;"></a> 
+<a id="map" style="display:block;height:10px;"></a>       
+<div class="container">
   <div class="row align-items-center no-gutters mb-1 mb-lg-1">
     <div class="col-xl-4 col-lg-5">
       <div class="featured-text text-center text-lg-left">
@@ -71,8 +89,10 @@
   <div class="container">       
     <iframe class="embedded-map" src="map/crime_number.html" scrolling="no"></iframe>   
   </div> 
-    
-  <div class="container" id="charts">
+   
+  <a name="charts1" style="display:block;height:100px;margin-top:-100px;"></a>
+  <a id="charts" style="display:block;height:10px;"></a>       
+  <div class="container" >
     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
@@ -83,7 +103,7 @@
     </div>
   </div> 
    
-     
+  <div class="container">     
   <div id="chartContainer">
     <p id="charttitle">Crimes in Chicago 2010-2020</p>
     <p id="chartsubhead">Chart title is here</p>
@@ -91,6 +111,7 @@
     <option>Change Ward Here:</option>
     </select></p> <!-- This is the drop down menu to select different cities-->
   </div>
+    </div>
     
   <script>
         d3.csv("assets/total.csv", function (CityData) {
@@ -169,7 +190,7 @@
 <div class="container" id="charts">
   <div class="row align-items-center no-gutters mb-4 mb-lg-5">
     <div class="col-xl-4 col-lg-5">
-      <div class="featured-text text-center text-lg-left">
+      <div class="text-center text-lg-left">
         <h5 style="width: 800px" class="text-white-80 mx-auto mt-3 mb-1">Next, the changes in the number of various crime types are displayed below.</h5>
       </div>
     </div>
