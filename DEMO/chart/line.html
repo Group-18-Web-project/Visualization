@@ -1,0 +1,104 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-stack
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+      <table class="columns">
+        <tr>
+          <td>
+            <h2 style="text-align: left; margin-left:30px ">Trend of Crime numbers in Chicago</h2>  
+          </td>
+          <td valign="bottom">
+            <h5 style="margin-left:100px">↓(Try to click these labels!)↓</h5>  
+          </td>
+        </tr>
+      </table>
+        <div id="container" style="height: 85%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-nightly@5.1.2-dev.20210512/dist/echarts.min.js"></script>
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+option = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['Far South', 'South East', 'South West', 'Central', 'West', 'North', 'North West']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name: 'Far South',
+            type: 'line',
+            data: [40929, 39285, 37394, 34220, 30747, 28830, 28773, 28638, 28914, 28627, 24921]
+        },
+        {
+            name: 'South East',
+            type: 'line',
+            data: [53727, 51694, 49290, 44763, 39572, 38165, 36516, 36483, 36888, 39394, 34184]
+        },
+        {
+            name: 'South West',
+            type: 'line',
+            data: [50693, 48825, 44549, 39815, 35248, 34183, 33444, 32252, 31699, 28678, 23975]
+        },
+        {
+            name: 'Central',
+            type: 'line',
+            data: [29483, 28928, 27849, 26672, 23911, 23756, 26865, 29690, 30732, 31003, 19605]
+        },
+        {
+            name: 'West',
+            type: 'line',
+            data: [68218, 64271, 63114, 59625, 55060, 51602, 52524, 50729, 52544, 54085, 42643]
+        },
+        {
+            name: 'North',
+            type: 'line',
+            data: [58927, 55237, 53799, 48174, 43215, 41410, 43993, 45430, 43723, 35792, 28300]
+        },
+        {
+            name: 'North West',
+            type: 'line',
+            data: [68430, 63650, 60167, 54085, 47861, 46581, 47448, 45570, 43857, 43056, 37059]
+        }
+    ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    

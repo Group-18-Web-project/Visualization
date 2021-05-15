@@ -87,7 +87,7 @@
 </div>
     
   <div class="container">       
-    <iframe class="embedded-map" src="map/crime_number.html" scrolling="no"></iframe>   
+    <iframe style="background: white" class="embedded-map" src="map/crime_number.html" scrolling="no"></iframe>   
   </div> 
    
   <a name="charts1" style="display:block;height:100px;margin-top:-100px;"></a>
@@ -103,89 +103,21 @@
     </div>
   </div> 
    
-  <div class="container">     
-  <div id="chartContainer">
-    <p id="charttitle">Crimes in Chicago 2010-2020</p>
-    <p id="chartsubhead">Chart title is here</p>
-    <p><select id="WardMenu">
-    <option>Change Ward Here:</option>
-    </select></p> <!-- This is the drop down menu to select different cities-->
+  <div class="container">
+      <table class="columns">
+      <tr>
+        <td>
+          <iframe style="background: white" class="embedded-linechart" src="chart/line.html" scrolling="no"></iframe>   
+        </td>
+        <td valign="top" >
+          <div id="ward-img">
+              <button type="button" class="btn btn-secondary">(Ward classification)</button> 
+            <img src="assets/img/ward.png" style="width: 350px;height: 435px">
+          </div>
+        </td>
+        </tr>
+    </table>
   </div>
-    </div>
-    
-  <script>
-        d3.csv("assets/total.csv", function (CityData) {
-            var chartdata;
-            var cityMenu = document.getElementById("WardMenu");
-
-            for (var i = 0; i < CityData.length; i++) {            // In this loop we add the names of all the Cities in the CSV to the drop down menu
-                var el = document.createElement("option");
-                el.textContent = "Ward " + CityData[i].ward;
-                el.value = CityData[i].Index;
-                cityMenu.appendChild(el);
-            }
-
-            function SetCityData(index) {   // Function that extracts the Total Crime timeseries for the selected city
-
-                console.log(CityData[index]); // Show the data of the row in the console
-
-                document.getElementById("chartsubhead").innerHTML = "The Chosen Ward is Ward " + CityData[index].ward;
-
-                chartdata = [
-                    {"Ward":"Hist","Year": "2010","Total Crime": (CityData[index].crime2010) },
-                    {"Ward":"Hist","Year": "2011", "Total Crime": (CityData[index].crime2011) },
-                    {"Ward":"Hist","Year": "2012", "Total Crime": (CityData[index].crime2012) },
-                    {"Ward":"Hist","Year": "2013", "Total Crime": (CityData[index].crime2013) },
-                    {"Ward":"Hist","Year": "2014", "Total Crime": (CityData[index].crime2014) },
-                    {"Ward":"Hist","Year": "2015", "Total Crime": (CityData[index].crime2015) },
-                    {"Ward":"Hist","Year": "2016", "Total Crime": (CityData[index].crime2016) },
-                    {"Ward":"Hist","Year": "2017", "Total Crime": (CityData[index].crime2017) },
-                    {"Ward":"Hist","Year": "2018", "Total Crime": (CityData[index].crime2018) },
-                    {"Ward":"Hist","Year": "2019", "Total Crime": (CityData[index].crime2019) },
-                    {"Ward":"Hist","Year": "2020", "Total Crime": (CityData[index].crime2020) }
-                ];
-
-            }
-
-            SetCityData(0);
-
-            var svg = dimple.newSvg("#chartContainer", 840, 440);
-            var myChart = new dimple.chart(svg, chartdata);  // Create the chart
-            myChart.setBounds(80, 25, 700, 300);            // Set the chart bounds within the svg container
-
-            myChart.defaultColors = [
-                new dimple.color("#54aae3"),
-                new dimple.color("#54aae3")
-            ];
-            
-            var x = myChart.addTimeAxis("x", "Year", "%Y", "%Y");  // Define the x axis. The latter statements define the date format which we want to be year only
-            x.timeInterval = 1;
-            x.fontSize='small'
-
-            var y = myChart.addMeasureAxis("y", "Total Crime"); // Define the y axis
-            y.ticks = 10;
-            y.fontSize='small'
-        
-
-            var s = myChart.addSeries("Ward", dimple.plot.line);
-            s.lineMarkers = true;
-            s.interpolation = "cardinal";
-
-            myChart.draw(500); // Draw the chart. The number is the animation delay in miliseconds
-
-            document.getElementById("WardMenu").onchange = function () {    // This is the event listener that runs when the user changes the menu
-                var x = document.getElementById("WardMenu").value;
-                console.log(x);
-
-                SetCityData(x);   // Run the function that will update chartdata with the user selected city
-
-                svg.selectAll(".dimple-marker,.dimple-marker-back").remove(); // There's a bug where it doesn't remove the markers from the previous series. 
-
-                myChart.data = chartdata; // Update the chart with the new chartdata
-                myChart.draw(500);
-            }
-        })
-    </script>  
 
 <div class="container" id="charts">
   <div class="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -198,7 +130,7 @@
 </div> 
     
 <div class="container">       
-  <iframe class="embedded-chart" src="chart/piechart3.html" scrolling="no"></iframe>   
+  <iframe style="background: white" class="embedded-chart" src="chart/piechart.html" scrolling="no"></iframe>   
 </div>    
     
 </section>    
