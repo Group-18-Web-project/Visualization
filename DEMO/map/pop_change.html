@@ -7,7 +7,7 @@
         <style>
             #container {
 	        min-width: 320px;
-	        max-width: 800px;
+	        max-width: 800px;     
 	        margin: 0 auto;
             }
         </style>
@@ -17,12 +17,14 @@
         <script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
     </head>
     <body>
-        <div id="container"></div>
+        <div id="container" ></div>
         <script>
-            Highcharts.chart('container', {
+            Highcharts.chart('container', 
+            {
                chart: {
                type: 'packedbubble',
-               height: '100%'
+               height: '100%',
+               
              },
              title: {
              text: '2010 - 2016 Chicago Population Change'
@@ -62,7 +64,8 @@
                 }
              },
              series: [{
-                name: 'Large population left',
+                name: 'Large Pop decrease',
+                color: '#db2d24',
                  data: [{
                      name: 'Ward 20',
                      value: -4376
@@ -117,8 +120,12 @@
                 {
                      name: "Ward 21",
                      value: -1536
-                },
-                {
+                }]
+                
+              }, {
+                 name: 'Pop decrease',
+                 color: '#fabb85',
+                 data: [{  
                      name: "Ward 36",
                      value: -1389
                 },
@@ -129,10 +136,8 @@
                 {
                      name: "Ward 41",
                      value: -1146
-                }]
-              }, {
-                 name: 'population left',
-                 data: [{
+                },
+                {
                      name: "Ward 22",
                      value: -964
                  },
@@ -157,7 +162,8 @@
                      value: -360
                                }]
              }, {
-                name: 'Population entry',
+                name: 'Pop increase',
+                color: '#c3cfc5',
                 data: [{
                      name: "Ward 29",
                      value: 380
@@ -193,75 +199,85 @@
                 {
                      name: "Ward 28",
                      value: 892
-                }]
-            }, {
-                 name: 'Large Population entry',
-                 data: [{
-                     name: "Ward 28",
+                },
+
+                {
+                     name: "Ward 19",
                      value: 1151
                  },
                  {
-                     name: "Ward 28",
+                     name: "Ward 18",
                      value: 1363
-                 },
-                {
-                     name: "Ward 28",
+                 
+        
+                }]
+            }, {
+                 name: 'Large Pop increase',
+                 color: '#4377b3',
+                 data: [{
+                     
+                     name: "Ward 23",
                      value: 1586
                  },
                  {
-                     name: "Ward 28",
+                     name: "Ward 45",
                      value: 1662
                  },
                  {
-                     name: "Ward 28",
+                     name: "Ward 39",
                      value: 1830
                  },
                  {
-                     name: "Ward 28",
+                     name: "Ward 2",
                      value: 1900
                  },
                 {
-                     name: "Ward 28",
+                     name: "Ward 27",
                      value: 2170
                 },
                 {  
-                     name: "Ward 28",
+                     name: "Ward 50",
                      value: 2264
                 },
                 {
-                     name: "Ward 28",
+                     name: "Ward 43",
                      value: 2500
                 },
                 {
-                     name: "Ward 28",
+                     name: "Ward 4",
                      value: 2712
                 },
                 {
-                     name: "Ward 28",
+                     name: "Ward 3",
                      value: 2724
                  },
                  { 
-                     name: "Ward 28",
+                     name: "Ward 13",
                      value: 2970
                  },
                  {
-                     name: "Ward 28",
+                     name: "Ward 11",
                      value: 3480
                  },
                  {
-                      name: "Ward 28",
+                      name: "Ward 44",
                      value: 3813
                 },
                 {
-                     name: "Ward 28",
+                     name: "Ward 38",
                      value: 3860
                  },
                 {
-                      name: "Ward 28",
+                      name: "Ward 32",
                      value: 3914
-                 },
-                 {
-                     name: "Ward 28",
+                 }]
+                },{
+                 name: 'Extra Large Pop increase',
+                 color: '#00008B',
+                 data: [{
+                 
+                 
+                     name: "Ward 47",
                      value: 4649
                  },
                  {

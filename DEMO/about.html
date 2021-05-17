@@ -38,40 +38,80 @@
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
           <h3 class="text-white-80">Analysis</h3>
-          <h6 style="width: 1000px" class="text-white-80 mx-auto mt-2 mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at ultricies odio, nec placerat ipsum. Nulla non dolor fringilla, finibus eros ac, tempus libero. Nam at lacus vel massa pretium fringilla. Maecenas ac ex a elit vestibulum tempor vel luctus mauris. Morbi sed sapien ac purus vulputate semper eget sed nisi. Aliquam erat volutpat. Aenean mauris felis, elementum sit amet lobortis sed, dictum id purus. Sed metus lorem, lacinia at condimentum ut, eleifend eu odio. In molestie lorem et metus interdum, id dignissim nibh ornare. </h6>
+          <h5 style="width: 1120px; text-align:justify; text-justify:inter-ideograph;" class="text-white-80 mx-auto mt-2 mb-1">According to research by Liu, Song & Xi (2016), population mobility increases the chance of crime. This part aims to visualize the population changes of wards from 2010 to 2016 to analyze whether there is a high number of crimes in areas with large population movements. </h5>
         </div>
       </div>
     </div>
-      
-    <div class="container">       
-    <table class="columns">
-      <tr>
-        <td>
-          <iframe style="background: white" class="embedded-pop" src="map/pop_change.html" scrolling="no"></iframe> 
-        </td>
-        <td >
-          <img src="assets/img/pop.png" style="width: 600px;height: 500px">
+    
+    <div class="container">
+      <table class="columns">
+        <tr>
+          <td>
+            <iframe style="background: white" class="embedded-pop" src="map/pop_change.html" scrolling="no"></iframe>   
+          </td>
+          <td valign="top" >
+          <div id="ward-img">
+              <button type="button" class="btn btn-secondary">(Pop classification)</button> 
+          <img src="assets/img/pop.png" style="width: 600px;height: 535px">
+          </div>
         </td>
         </tr>
-    </table>
-    </div> 
+      </table>
+    </div>  
       
     <div class="row align-items-center no-gutters mt-4 my-4">
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
-          <h6 style="width: 1000px" class="text-white-80 mx-auto mt-3 mb-3">Nulla elementum sapien leo, eu blandit sem pellentesque ac. Fusce faucibus mauris lorem, nec maximus nibh placerat at. Cras volutpat mi lacus. Donec vel arcu viverra, ultricies ligula at, bibendum est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque posuere urna nisi. Praesent congue augue erat, ultrices faucibus tellus ultrices elementum.  </h6>
+          <h4 style="width: 1120px; text-align:justify; text-justify:inter-ideograph;" class="text-white-80 mx-auto mt-3 mb-3">
+          Clustering analysis of Chicago crime  
+          </h4>
         </div>
       </div>
     </div> 
-      <img src="assets/img/cluster2010.jpg">
   </div>
       
+    <div class="container" style="background-color: white">
+      <table class="columns">
+        <tr>
+          <td>
+            <img src="assets/img/cluster2010.jpg">   
+          </td>
+          <td style="text-align:right; width:100%" >
+            <img src="assets/img/cluster2020.jpg"> 
+        </td>
+        </tr>
+      </table>
+    </div>      
+   
+  <div class="container">    
+    <div class="row align-items-center no-gutters mt-4 my-4">
+      <div class="col-xl-4 col-lg-5">
+        <div class="featured-text text-center text-lg-left">
+          <h4 style="width: 1120px" class="text-white-80 mx-auto mt-1 mb-1">2010</h4>        
+          <h5 style="width: 1120px; text-align:justify; text-justify:inter-ideograph;" class="text-white-80 mx-auto mt-1 mb-1">
+          Cluster 0: Battery，Narcotics，Theft in the west and south of Chicago <br>
+          Cluster 1: Theft，Battery，Criminal Damage in the north, southwest and far south of Chicago <br>
+          Cluster 2: Theft，Deceptive Practice，Battery in the centre of Chicago</br></br>
+          <h4 style="width: 1120px" class="text-white-80 mx-auto mt-1 mb-1">2020</h4> 
+          <h5 style="width: 1120px; text-align:justify; text-justify:inter-ideograph;" class="text-white-80 mx-auto mt-1 mb-1">
+          Cluster 0: Battery，Theft，Narcotics in the west of Chicago <br>
+          Cluster 1: Theft，Battery，Deceptive Practice in the north and centre of Chicago <br>
+          Cluster 2: Battery，Theft，Assault all over the Chicago</br></br>                 
+          </h5>
+         <h5 style="width: 1120px; text-align:justify; text-justify:inter-ideograph;" class="text-white-80 mx-auto mt-1 mb-1">
+          The results of clustering analysis of Chicago crime is shown in the map. There are 3 clusters in each year and the major crime type(top 3 crime type) and their geographical characteristics of each cluster can be found below.               
+         </h5>
+        </div>
+      </div>
+    </div> 
+  </div>      
+    
   <div class="container" style="margin-top: 100px">
     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
           <h3 class="text-white-80">Conclusion</h3>
-          <h6 style="width: 1000px" class="text-white-80 mx-auto mt-3 mb-5">Maecenas dapibus quis dolor vel iaculis. Quisque viverra arcu ut neque fermentum vestibulum. Donec mollis aliquet ligula, pharetra interdum massa semper ac. Mauris purus sapien, tincidunt quis sem sed, luctus suscipit eros. In nec ex enim. Donec at felis massa. Aliquam a mauris sed diam tristique placerat. Curabitur non facilisis sem. In quis mollis odio. In varius libero ut tincidunt finibus. Praesent vitae risus eget nulla porta dapibus. Nullam dignissim est arcu, ut mollis tortor ullamcorper vel. Aliquam dapibus, nunc id rhoncus bibendum, augue enim pellentesque nisl, ac faucibus libero elit ac ante. In aliquet nibh eget neque lobortis volutpat. Nunc finibus imperdiet tortor, a laoreet diam lobortis vel. </h6>
+          <h5 style="width: 1120px; text-align:justify; text-justify:inter-ideograph;" class="text-white-80 mx-auto mt-3 mb-5">We analyzed the trend and details of crime numbers in Chicago from 2010 to 2020 and found that the number of crimes in Chicago is on a downward trend, which means that Chicago is becoming more and more secure. Although there are still some problems, there is no doubt that Chicago is transforming into a safer city. </h5>
         </div>
       </div>
     </div>
