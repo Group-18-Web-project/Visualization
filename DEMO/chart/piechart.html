@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -7,88 +8,90 @@
         //code from:https://developers.google.com/chart/interactive/docs/basic_multiple_charts
         // Load Charts and the corechart package.
         google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(function () { drawchart(document.getElementById("menu1").value, 1); });
-        google.charts.setOnLoadCallback(function () { drawchart(document.getElementById("menu2").value, 2); });
+        google.charts.setOnLoadCallback(function() { drawchart(document.getElementById("menu1").value,1);});
+        google.charts.setOnLoadCallback(function() { drawchart(document.getElementById("menu2").value,2);});
 
         // main funcion to response the change
-        function drawgraph(year, id) {
-            google.charts.setOnLoadCallback(function () { drawchart(year, id.slice(-1)); });
+        function drawgraph(year,id){ 
+            google.charts.setOnLoadCallback(function() { drawchart(year,id.slice(-1));});
 
-        }
+      }
 
-        var raw_data = {
-            '2010': [21487, 65260, 26378, 40550, 12275, 18991, 43304, 21964, 14235, 76355, 28210],
-            '2011': [20411, 60459, 26620, 37332, 12709, 19388, 38605, 20194, 13983, 75150, 27053],
-            '2012': [19899, 59138, 22845, 35854, 13741, 16492, 35489, 17481, 13485, 75462, 26283],
-            '2013': [17972, 54005, 17859, 30853, 13879, 12582, 34127, 17997, 11820, 71531, 24732],
-            '2014': [16903, 49450, 14569, 27798, 15910, 9911, 29118, 16984, 9799, 61566, 23608],
-            '2015': [16948, 48732, 13077, 28527, 14048, 9984, 21587, 17239, 9596, 56454, 21056],
-            '2016': [18667, 50160, 14257, 30845, 18079, 11246, 13243, 17167, 11924, 60778, 20155],
-            '2017': [19195, 49055, 12919, 28898, 17725, 11320, 11464, 16914, 11825, 63342, 21580],
-            '2018': [20286, 49613, 11662, 27636, 17801, 9913, 12783, 16907, 9637, 63740, 22702],
-            '2019': [20617, 49501, 9636, 26680, 18678, 8972, 15060, 16756, 7993, 62443, 24314],
-            '2020': [18159, 41327, 8661, 24621, 16878, 9882, 7261, 12367, 7826, 40079, 20845]
-        };
+        var raw_data = {'2010': [21487, 65260, 26378, 40550, 12275, 18991, 43304, 21964, 14235, 76355, 28210], 
+                        '2011': [20411, 60459, 26620, 37332, 12709, 19388, 38605, 20194, 13983, 75150, 27053], 
+                        '2012': [19899, 59138, 22845, 35854, 13741, 16492, 35489, 17481, 13485, 75462, 26283], 
+                        '2013': [17972, 54005, 17859, 30853, 13879, 12582, 34127, 17997, 11820, 71531, 24732], 
+                        '2014': [16903, 49450, 14569, 27798, 15910, 9911, 29118, 16984, 9799, 61566, 23608], 
+                        '2015': [16948, 48732, 13077, 28527, 14048, 9984, 21587, 17239, 9596, 56454, 21056], 
+                        '2016': [18667, 50160, 14257, 30845, 18079, 11246, 13243, 17167, 11924, 60778, 20155], 
+                        '2017': [19195, 49055, 12919, 28898, 17725, 11320, 11464, 16914, 11825, 63342, 21580], 
+                        '2018': [20286, 49613, 11662, 27636, 17801, 9913, 12783, 16907, 9637, 63740, 22702], 
+                        '2019': [20617, 49501, 9636, 26680, 18678, 8972, 15060, 16756, 7993, 62443, 24314], 
+                        '2020': [18159, 41327, 8661, 24621, 16878, 9882, 7261, 12367, 7826, 40079, 20845]
+                    };
 
         // the color for pie and bar chart
-        var customize_color = ["#888888", "#957c94", "#FF9999", "#CC6666", "#FF9966", "#FFCC00", "#957c00", "#CC9900", "#669999", "#339966", "#95bb94"];
-
+        var customize_color = ["#888888", "#957c94","#FF9999", "#CC6666", "#FF9966", "#FFCC00", "#957c00", "#CC9900", "#669999", "#339966","#95bb94"];     
+        
         // format the data using in the google chart
-        function produce_new_data(year_data) {
+        function produce_new_data(year_data){
             var format_data = [['ASSAULT'],
-            ['BATTERY'],
-            ['BURGLARY'],
-            ['CRIMINAL DAMAGE'],
-            ['DECEPTIVE PRACTICE'],
-            ['MOTOR VEHICLE THEFT'],
-            ['NARCOTICS'],
-            ['OTHER OFFENSE'],
-            ['ROBBERY'],
-            ['THEFT'],
-            ['OTHER']];
+                                ['BATTERY'],
+                                ['BURGLARY'],
+                                ['CRIMINAL DAMAGE'],
+                                ['DECEPTIVE PRACTICE'],
+                                ['MOTOR VEHICLE THEFT'],
+                                ['NARCOTICS'],
+                                ['OTHER OFFENSE'],
+                                ['ROBBERY'],
+                                ['THEFT'],
+                                ['OTHER']];
             var i = 0;
-            format_data.forEach(function (row) {
-                row.splice(1, 0, year_data[i], customize_color[i]);
-                i = i + 1;
-            })
-            format_data.splice(0, 0, ['Type', 'Number', { role: 'style' }]);
-            return format_data;
-        }
+            format_data.forEach(function(row) {
+              row.splice(1, 0,  year_data[i], customize_color[i]);
+              i = i+1;
+          })
+          format_data.splice(0, 0,['Type', 'Number', { role: 'style' }]);
+          return format_data;
+        }  
+        
 
-
-        function clearcontent(elementID) {
-            var div = document.getElementById(elementID);
-            while (div.firstChild) {
-                div.removeChild(div.firstChild);
-            }
-        }
-
-        function drawchart(year, index) {
+        function clearcontent(elementID) { 
+	            var div = document.getElementById(elementID);  
+	            while(div.firstChild) { 
+	                div.removeChild(div.firstChild); 
+	            } 
+	        }
+        
+        function drawchart(year,index) {
 
             // Create the data table using the selected year
             var data = new google.visualization.arrayToDataTable(produce_new_data(raw_data[year]));
 
             // Set options for pie chart.
             var options = {
-                title: 'Crime type in ' + year,
-                titleTextStyle: {
-                    fontSize: 18
-                },
+                title: 'Pie Chart for '+ year,
                 //width: 400,
                 //height: 400,
                 pieStartAngle: 0,
                 colors: customize_color,
-                chartArea: { left: 50, top: 80 },
-                legend: 'none',
+                chartArea:{left:50,top:80},
+                legend: 'none'
             };
 
             var bar_options = {
-                //title: 'Bar Chart for crime types ' + year,
+                title: 'Bar Chart for '+ year,
                 //width: 400,
                 //height: 400,
-                chartArea: { left: 150, top: 10 },
-                legend: 'none',
-                fontSize: 11.5
+                chartArea:{left:110,top:40},
+                hAxis: {
+                viewWindow: {
+                       min: 0,
+                       max: 80000
+                     },
+                     ticks: [0, 20000, 40000, 60000, 80000] // display labels every 20000
+                     },
+                legend: 'none'
             };
             pie = 'chart_div' + index;
             bar = 'bar_chart_div' + index;
@@ -100,8 +103,8 @@
             var barchart = new google.visualization.BarChart(document.getElementById(bar));
             barchart.draw(data, bar_options);
         }
-
-
+        
+        
     </script>
 
 </head>
@@ -128,11 +131,11 @@
                     <option>2019</option>
                     <option>2020</option>
                 </select>
-                <div id="chart_div1" style="position:relative;left:50px;top:25px;width:400;height:400"></div>
-                <div id="bar_chart_div1" style="position:relative;left:10px;top:25px;width:400;height:400"></div>
+                <div id="chart_div1" style="position:relative;left:50px;top:25px;width:400;height:400" ></div>
+                <div id="bar_chart_div1" style="position:relative;left:50px;top:25px;width:350;height:350" ></div>
             </td>
             <td>
-
+                
                 <select id="menu2" onchange=drawgraph(this.value,this.id)>
                     <option>2010</option>
                     <option>2011</option>
@@ -146,8 +149,8 @@
                     <option>2019</option>
                     <option selected="selected">2020</option>
                 </select>
-                <div id="chart_div2" style="position:relative;left:50px;top:25px;width:400;height:400"></div>
-                <div id="bar_chart_div2" style="position:relative;left:10px;top:25px;width:400;height:400"></div>
+                <div id="chart_div2" style="position:relative;left:50px;top:25px;width:400;height:400" ></div>
+                <div id="bar_chart_div2" style="position:relative;left:10px;top:25px;width:350;height:350" ></div>
             </td>
         </tr>
     </table>
