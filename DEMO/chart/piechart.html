@@ -8,6 +8,7 @@
         //code from:https://developers.google.com/chart/interactive/docs/basic_multiple_charts
         // Load Charts and the corechart package.
         google.charts.load('current', { 'packages': ['corechart'] });
+        //determine the initial values of the menu
         google.charts.setOnLoadCallback(function() { drawchart(document.getElementById("menu1").value,1);});
         google.charts.setOnLoadCallback(function() { drawchart(document.getElementById("menu2").value,2);});
 
@@ -33,7 +34,7 @@
         // the color for pie and bar chart
         var customize_color = ["#888888", "#957c94","#FF9999", "#CC6666", "#FF9966", "#FFCC00", "#957c00", "#CC9900", "#669999", "#339966","#95bb94"];     
         
-        // format the data using in the google chart
+        // reconstruct the data, so that the data can be changed into a format that is suitable for the Google chart, at the same time, the “customize_color” variable which is used to adjust the color of the bar chart is added to the data.
         function produce_new_data(year_data){
             var format_data = [['ASSAULT'],
                                 ['BATTERY'],
@@ -63,6 +64,7 @@
 	            } 
 	        }
         
+        //make sure the contents of both pairs of pie chart and bar chart can be changed at the same time
         function drawchart(year,index) {
 
             // Create the data table using the selected year
